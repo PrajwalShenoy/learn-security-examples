@@ -1,3 +1,43 @@
 Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+The vulnerability in insecure.js arises from its failure to validate and sanitize user input, 
+specifically the username input. This oversight makes the code vulnerable to NoSQL injection 
+attacks. Without proper validation and sanitation, an attacker could manipulate database queries, 
+potentially leading to unauthorized access to sensitive information.
+The secure.js version addresses this vulnerability by implementing input validation and sanitation 
+mechanisms. It ensures that the username is a string and then sanitizes it by removing any 
+non-alphanumeric characters before executing the database query. This approach prevents NoSQL 
+injection attacks by ensuring that the input is properly formatted and free from malicious 
+characters that could alter the behavior of the query.
+
 Which CIA property does tampering violate?
+Tampering, in the context of cybersecurity, refers to the unauthorized alteration of data or code. 
+It directly violates the Integrity aspect of the CIA (Confidentiality, Integrity, Availability) 
+triad, as it compromises the accuracy and reliability of the data or system.
+In the scenario provided, if an attacker successfully tampers with the username input or database 
+queries, the integrity of the system is compromised. This could lead to unauthorized access or 
+alteration of sensitive user information, undermining the trustworthiness and authenticity of the 
+data in the system. Ensuring data integrity is crucial for maintaining the security and reliability 
+of any information system.
+
 What additional security mechanisms can you incorporate?
+To enhance the security of the system and further protect against various attacks, the following measures can be implemented:
+Rate Limiting: Implement rate limiting to prevent brute force attacks 
+    by restricting the number of requests a user can make within a specific timeframe.
+Strong Password Policies: Enforce strong password policies that require 
+    complex and unique passwords, reducing the risk of password-based attacks.
+Encryption: Use encryption to protect sensitive data during storage and 
+    transmission, ensuring that even if data is intercepted, it remains unreadable to unauthorized parties.
+Authentication Mechanisms: Implement robust authentication mechanisms, 
+    such as JSON Web Tokens (JWT), to securely manage user authorization and session management.
+Regular Updates: Regularly update software dependencies and libraries 
+    to patch known vulnerabilities and reduce the attack surface.
+Logging and Monitoring: Set up logging and monitoring systems to detect and 
+    alert on suspicious activities or security breaches, enabling prompt response and mitigation.
+By incorporating these additional measures, the security posture of the system can be significantly strengthened, 
+providing a more comprehensive defense against a wide range of cybersecurity threats.
+
+
+
+
+
+

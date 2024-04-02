@@ -1,0 +1,24 @@
+Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+The vulnerability in the insecure.js code lies in its lack of proper authentication and authorization mechanisms.
+It relies solely on checking the user's role without verifying their identity or session state, making it susceptible to privilege escalation
+attacks. An attacker could potentially send a request with an arbitrary userId and newRole, bypassing the authentication and authorization 
+checks, and escalate their privileges to that of an admin.
+The secure.js version addresses this vulnerability by implementing session-based authentication. 
+It uses the express-session middleware to manage user sessions, ensuring that users are authenticated before allowing access to 
+sensitive operations like updating user roles. Additionally, it verifies the user's role based on their session data, mitigating the risk 
+of unauthorized privilege escalation by requiring both authentication and proper authorization.
+
+What additional security mechanisms can you incorporate to prevent such attacks?
+1. Implementation Weaknesses: These refer to vulnerabilities and flaws in the way security measures are implemented
+within the system, making it susceptible to various attacks.
+
+2. Absence of Authorization: Authorization is the process of determining whether a user or system is allowed to perform a 
+particular action or access a specific resource. Without proper authorization mechanisms in place, users may gain unauthorized access 
+to sensitive data or perform actions beyond their privileges. This can lead to data breaches, unauthorized modifications, or other security
+incidents.
+
+3. Exposing Services Which Don’t Need To Be: Exposing unnecessary services or endpoints increases the attack surface of the application,
+providing more opportunities for attackers to exploit vulnerabilities. It's essential to minimize the exposure of services to only those
+that are required for the application's functionality. By reducing the number of exposed services, organizations can reduce the likelihood
+of attackers finding and exploiting weaknesses in the system. This principle aligns with the security concept of "least privilege," 
+where only necessary access rights are granted to users or systems.
